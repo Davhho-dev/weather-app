@@ -5,17 +5,105 @@
     color: white;
 }
 
-body, html {
+body,
+html {
     height: 100vh;
+    background-color: var(--pri-cl);
 }
 
 :root {
     --pri-ft: "Lato", "Poppins", sans-serif;
     --sec-ft: "Merriweather", "Poppins", sans-serif;
-    --pri-cl: #0C131E;
-    --sec-cl: #212B3C;
+    --pri-cl: #212B3C;
 }
 
-body {
+#wrapper {
+    height: 100%;
+    display: grid;
+    grid-template-rows: 1fr 7fr;
+    gap: 5rem;
+}
+
+#header {
+    font-family: var(--pri-ft);
+    font-size: 2.5rem;
     background-color: var(--pri-cl);
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.title {
+    margin: auto;
+}
+
+#main {
+    display: grid;
+    grid-template-columns: 3fr 4fr;
+    grid-template-areas: "main-left main-right"
+}
+
+#main-left {
+    grid-area: main-left;
+}
+
+.weather-con {
+    height: 50%;
+    width: 75%;
+    margin-left: 5rem;
+    background-color: var(--pri-cl);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2.5rem;
+    border-radius: 50px;
+    background: linear-gradient(145deg, #1e2736, #232e40);
+    box-shadow: 20px 20px 60px #1c2533,
+                -20px -20px 60px #263145;
+}
+
+.temperature-con {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.location-con {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.location {
+    font-family: var(--pri-ft);
+}
+
+#state {
+    font-size: 2rem;
+}
+
+#city {
+    font-size: 3rem;
+}
+
+.temperature-con {
+    font-family: var(--sec-ft);
+}
+
+#temperature {
+    font-size: 3.5rem;
+}
+
+#degrees {
+    font-size: 1.5rem;
+    padding-bottom: 1.5rem;
+}
+
+.temp-info {
+    margin-left: 1rem;
+    padding-left: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    border-left: 5px solid black;
 }
