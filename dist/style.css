@@ -15,6 +15,7 @@ html {
     --pri-ft: "Lato", "Poppins", sans-serif;
     --sec-ft: "Merriweather", "Poppins", sans-serif;
     --pri-cl: #212B3C;
+    --switch-rd: 15px;
 }
 
 #wrapper {
@@ -25,8 +26,6 @@ html {
 }
 
 #header {
-    font-family: var(--pri-ft);
-    font-size: 2.5rem;
     background-color: var(--pri-cl);
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -34,6 +33,40 @@ html {
 
 .title {
     margin: auto;
+    font-family: var(--pri-ft);
+    font-size: 2.5rem;
+}
+
+.switch-con {
+    margin: auto 5rem;
+}
+
+.switch {
+    position: relative;
+    padding: .5rem 1rem;
+    width: fit-content;
+    font-family: var(--sec-ft);
+    font-size: 1.25rem;
+    display: flex;
+    gap: 1rem;
+    border-radius: var(--switch-rd);
+    background: linear-gradient(145deg, #232e40, #1e2736);
+    box-shadow: 20px 20px 18px #1d2635,
+                -20px -20px 18px #253043;
+}
+
+.slider {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #171f2b;
+    height: 100%;
+    width: 50%;
+    border-radius: var(--switch-rd) 0 0 var(--switch-rd);
+}
+
+.slider-right {
+    padding-left: 1rem;
 }
 
 #main {
