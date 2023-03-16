@@ -1,0 +1,16 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, html {
+    height: 100vh;
+}
+
+:root {
+    --pri-ft: "Lato", "Poppins", sans-serif;
+    --sec-ft: "Merriweather", "Poppins", sans-serif;
+    --pri-cl: #0C131E;
+    --sec-cl: #212B3C;
+}
