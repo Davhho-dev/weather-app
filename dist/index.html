@@ -15,7 +15,29 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;1,800&display=swap">
 </head>
 <body>
-
+    <div id="wrapper">
+        <header id="header">Weather App</header>
+        <main id="main">
+            <div class="weather-con">
+                <div class="location-con">
+                    <p class="location" id="state">New York</p>
+                    <p class="location" id="city">Brooklyn</p>
+                </div>
+                <label class="switch">
+                    <input type="checkbox">
+                    <span class="slider"></span>
+                </label>
+                <div class="temperature-con">
+                    <p class="temperature" id="temperature">65</p>
+                    <p class="temperature" id="degrees">°F</p>
+                </div>
+                <div class="temp-info">
+                    <p class="info" id="high">Hi: 65°F</p>
+                    <p class="info" id="low">Lo: 65°F</p>
+                </div>
+            </div>
+        </main>
+    </div>
 
     <script src="main.js"></script>
 </body>
