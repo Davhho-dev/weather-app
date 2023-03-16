@@ -62,7 +62,7 @@ html {
     background-color: #171f2b;
     height: 100%;
     width: 50%;
-    border-radius: var(--switch-rd) 0 0 var(--switch-rd);
+    border-radius: var(--switch-rd);
 }
 
 .slider-right {
