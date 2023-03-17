@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Merriweather">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;1,800&display=swap">
@@ -30,10 +31,17 @@
         <main id="main">
             <div class="main-wrapper" id="main-left">
                 <div class="weather-con">
+                    <form>
+                        <span class="material-symbols-rounded" id="search-icon">search</span>
+                        <label for="search"></label>
+                        <input type="text" id="search" name="search" placeholder="Search for City, State, or Country">
+                        <span class="material-symbols-rounded" id="right-arrow">arrow_right_alt</span>
+                    </form>
                     <div class="location-con">
                         <p class="location" id="state">New York</p>
                         <p class="location" id="city">Brooklyn</p>
                     </div>
+                    <p id="weather-condition">Cloudy</p>
                     <div class="temperature-con">
                         <p class="temperature" id="temperature">65</p>
                         <p class="temperature" id="degrees">°F</p>

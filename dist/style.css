@@ -16,6 +16,7 @@ html {
     --sec-ft: "Merriweather", "Poppins", sans-serif;
     --pri-cl: #212B3C;
     --switch-rd: 15px;
+    --search-icon: 32px;
 }
 
 #wrapper {
@@ -49,6 +50,7 @@ html {
     font-size: 1.25rem;
     display: flex;
     gap: 1rem;
+    cursor: pointer;
     border-radius: var(--switch-rd);
     background: linear-gradient(145deg, #232e40, #1e2736);
     box-shadow: 20px 20px 18px #1d2635,
@@ -63,6 +65,7 @@ html {
     height: 100%;
     width: 50%;
     border-radius: var(--switch-rd);
+    cursor: pointer;
 }
 
 .slider-right {
@@ -93,6 +96,38 @@ html {
     background: linear-gradient(145deg, #1e2736, #232e40);
     box-shadow: 20px 20px 60px #1c2533,
                 -20px -20px 60px #263145;
+}
+
+form {
+    width: 100%;
+    margin-left: 6.25rem;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: .5rem;
+}
+
+.material-symbols-rounded {
+    font-size: var(--search-icon) !important;
+    cursor: pointer;
+}
+
+input {
+    width: 75%;
+    font-family: var(--pri-ft);
+    font-size: 1.75rem;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.5);
+    border: none;
+}
+
+input:focus {
+    outline: none;
+}
+
+#weather-condition {
+    font-family: var(--sec-ft);
+    font-size: 2rem;
 }
 
 .temperature-con {
