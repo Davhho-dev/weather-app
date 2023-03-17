@@ -113,7 +113,7 @@ form {
 }
 
 input {
-    width: 75%;
+    width: 0%;
     font-family: var(--pri-ft);
     font-size: 1.75rem;
     color: white;
@@ -123,6 +123,10 @@ input {
 
 input:focus {
     outline: none;
+}
+
+#right-arrow {
+    display: none;
 }
 
 #weather-condition {
