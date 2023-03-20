@@ -1,5 +1,5 @@
 import { moveSlider } from "./slider";
-import { searchBar } from "./search";
+import { animateSearchBar } from "./search";
 
 const sliders = document.querySelector(".switch");
 sliders.addEventListener("click", (e) => {
@@ -8,5 +8,5 @@ sliders.addEventListener("click", (e) => {
 
 const form = document.querySelector("form");
 form.addEventListener("click", (e) => {
-    if(e.target.id === "search-icon" || e.target.id === "right-arrow") searchBar(); 
+    if(e.target.id === "search-icon" || e.target.id === "right-arrow") animateSearchBar(); 
 });
