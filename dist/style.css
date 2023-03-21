@@ -134,6 +134,7 @@ button {
 #weather-condition {
     font-family: var(--sec-ft);
     font-size: 2rem;
+    text-transform: capitalize;
 }
 
 .temperature-con {
@@ -180,4 +181,15 @@ button {
     flex-direction: column;
     gap: 1rem;
     border-left: 5px solid black;
+}
+
+.hi-lo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: var(--sec-ft);
+}
+
+.info-temp {
+    padding-left: .25rem;
 }
