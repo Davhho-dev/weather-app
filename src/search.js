@@ -41,27 +41,34 @@ async function convertToCordinates(data, units) {
   );
   const cordinateData = await cordinateResponse.json();
   console.log(cordinateData);
-  updateWeatherData(cordinateData, getCurrentHiLo(cordinateData));
+  updateWeatherData(cordinateData, getCurrentHiLo(cordinateData), units);
   return cordinateData;
 }
 
 function getCurrentHiLo(weatherData) {
   const weatherArr = weatherData.list;
-  const todaysDate = weatherData.list[0].dt_txt.slice(0, 10);
+  const todaysDate = convertUnixToUTC(weatherData.list[0].dt).slice(0, 10);
   let low = Math.round(weatherData.list[0].main.temp_min);
   let high = Math.round(weatherData.list[0].main.temp_max);
   weatherArr.forEach((day) => {
-    let date = day.dt_txt.slice(0, 10);
+    let ifTodaysDate = convertUnixToUTC(day.dt).slice(0, 10);
     let minTemp = Math.round(day.main.temp_min);
     let maxTemp = Math.round(day.main.temp_max);
-    if (date === todaysDate) {
+    day.dt = convertUnixToUTC(day.dt);
+    if (ifTodaysDate === todaysDate) {
       if(minTemp <= low) low = minTemp;
       if(maxTemp >= high) high = maxTemp;
     }
   });
-  console.log(low);
-  console.log(high);
   return [low, high];
+}
+
+function convertUnixToUTC(unixTime) {
+  const convertedDate = new Date(unixTime * 1000).toLocaleDateString();
+  const convertedTime = new Date(unixTime * 1000).toLocaleTimeString();
+  let result = "";
+  (convertedDate.length < 10) ? result = ("0" + convertedDate) : result = convertedDate;
+  return result += `, ${convertedTime}`;
 }
 
 export { animateSearchBar, searchBar };
