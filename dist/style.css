@@ -193,3 +193,55 @@ button {
 .info-temp {
     padding-left: .25rem;
 }
+
+#card-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.cards {
+    width: 95%;
+    padding: 1rem;
+    font-family: var(--sec-ft);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    border-radius: 50px;
+    background: linear-gradient(145deg, #1e2736, #232e40);
+    box-shadow: 20px 20px 60px #1c2533,
+                -20px -20px 60px #263145;
+}
+
+.card-day {
+    font-family: var(--pri-ft);
+    font-size: 2rem;
+}
+
+.next-day-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.next-day-time {
+    font-family: var(--pri-ft);
+    font-size: 1.5rem;
+
+}
+.next-day-temp-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: var(--sec-ft);
+}
+
+.next-day-temp {
+    font-size: 1.5rem;
+}
+
+.next-day-degrees {
+    font-family: var(--sec-ft);
+}
