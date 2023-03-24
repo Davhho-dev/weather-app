@@ -211,13 +211,12 @@ button {
 }
 
 .todays-card {
-    width: calc(100% + 300px);
+    width: calc(100% + 120px);
     padding: 1rem;
 }
 
 .hourly-container {
     display: flex;
-    justify-content: center;
     align-items: center;
 }
 
