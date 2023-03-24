@@ -4,11 +4,18 @@ import { updateLocation } from "./UI";
 
 let units = "imperial";
 let inputArr = [];
+const onLoadInput = ["Brooklyn", "New York"];
+
+
+window.onload = (e) => {
+  searchBar(onLoadInput, units);
+}
 
 const sliders = document.querySelector(".switch");
 sliders.addEventListener("click", (e) => {
   units = moveSlider();
   if(inputArr.length > 0) searchBar(inputArr, units);
+  else searchBar(onLoadInput, units)
 });
 
 const form = document.querySelector("form");
@@ -22,6 +29,6 @@ form.addEventListener("click", (e) => {
       inputArr = userInput.split(", "); //check for whitespace
     else inputArr = userInput.split(",");
     searchBar(inputArr, units);
-    updateLocation(inputArr);
+    form.reset();
   }
 });
