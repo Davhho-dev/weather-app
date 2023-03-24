@@ -81,33 +81,13 @@ function createCards(weatherArr, units) {
     cards.classList.add("cards", `day${cardStartDay}`);
     const calendarDay = document.createElement("p");
     calendarDay.classList.add("card-day");
-    calendarDay.textContent = new Intl.DateTimeFormat("en-us", {weekday: "long"}).format(new Date(sameDayArr[0].dt.slice(0, 10)));
-    cards.appendChild(calendarDay);
+    calendarDay.textContent = new Intl.DateTimeFormat("en-us", {weekday: "short"}).format(new Date(sameDayArr[0].dt.slice(0, 10)));
     const hourlyContainer = document.createElement("div");
     hourlyContainer.classList.add("hourly-container");
     sameDayArr.forEach(day => {
-      const cardInfo = document.createElement("div");
-      cardInfo.classList.add("next-day-info")
-      const time = document.createElement("p");
-      time.classList.add("next-day-time");
-      time.textContent = simplifyTime(day.dt.slice(11));
-      const tempContainer = document.createElement("div");
-      tempContainer.classList.add("next-day-temp-container");
-      const temp = document.createElement("p");
-      temp.classList.add("next-day-temp");
-      temp.textContent = Math.round(day.main.temp);
-      const degrees = document.createElement("p");
-      degrees.classList.add("next-day-degrees");
-      if(units === "metric") degrees.textContent = "°C";
-      else degrees.textContent = "°F";
-      tempContainer.appendChild(temp);
-      tempContainer.appendChild(degrees);
-      cardInfo.appendChild(time);
-      cardInfo.appendChild(createWeatherIcon(day.weather[0].icon));
-      cardInfo.appendChild(tempContainer);
-      hourlyContainer.appendChild(cardInfo);
-      cards.appendChild(hourlyContainer);
+      hourlyContainer.appendChild(createHourlyInfo(day, units));
     });
+    cards.append(calendarDay, hourlyContainer);
     cardWrapper.appendChild(cards);
     cardStartDay++;
     startIndex += endIndex;
