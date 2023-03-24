@@ -1,4 +1,4 @@
-import { updateWeatherData } from "./UI";
+import { updateWeatherData, updateLocation } from "./UI";
 
 const input = document.getElementById("search");
 const enterBtn = document.querySelector("button");
@@ -29,10 +29,10 @@ async function searchBar(userInput, units) {
     { mode: "cors" }
   );
   const locationData = await response.json();
-  convertToCordinates(locationData, units);
+  convertToCordinates(locationData, units, userInput);
 }
 
-async function convertToCordinates(data, units) {
+async function convertToCordinates(data, units, userInput) {
   let lat = data[0].lat;
   let lon = data[0].lon;
   const cordinateResponse = await fetch(
@@ -42,6 +42,7 @@ async function convertToCordinates(data, units) {
   const cordinateData = await cordinateResponse.json();
   console.log(cordinateData);
   updateWeatherData(cordinateData, getCurrentHiLo(cordinateData), units);
+  updateLocation(userInput);
   return cordinateData;
 }
 
