@@ -27,6 +27,7 @@ html {
 }
 
 #header {
+    margin-top: 1rem;
     background-color: var(--pri-cl);
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -80,12 +81,16 @@ html {
 
 #main-left {
     grid-area: main-left;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
 }
 
 .weather-con {
     height: 50%;
     width: 75%;
-    margin-left: 5rem;
+    margin-left: -8rem;
     background-color: var(--pri-cl);
     display: flex;
     flex-direction: column;
@@ -194,6 +199,51 @@ button {
     padding-left: .25rem;
 }
 
+.scroll-box {
+    margin-left: -8rem;
+    width:75%;
+    overflow: auto;
+    white-space: nowrap;
+    border-radius: 50px;
+    background: linear-gradient(145deg, #1e2736, #232e40);
+    box-shadow: 20px 20px 60px #1c2533,
+                -20px -20px 60px #263145;
+}
+
+.todays-card {
+    width: calc(100% + 300px);
+    padding: 1rem;
+}
+
+.hourly-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hourly-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.hour {
+    font-family: var(--pri-ft);
+    font-size: 1.5rem;
+}
+
+.temp-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: var(--sec-ft);
+}
+
+.hourly-temp {
+    font-size: 1.5rem;
+}
+
 #card-wrapper {
     display: flex;
     flex-direction: column;
@@ -204,10 +254,9 @@ button {
     width: 95%;
     padding: 1rem;
     font-family: var(--sec-ft);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 2rem;
+    display: grid;
+    grid-template-columns: .25fr 2fr;
+    gap: 5rem;
     border-radius: 50px;
     background: linear-gradient(145deg, #1e2736, #232e40);
     box-shadow: 20px 20px 60px #1c2533,
@@ -217,6 +266,13 @@ button {
 .card-day {
     font-family: var(--pri-ft);
     font-size: 2rem;
+    text-align: center;
+    margin: auto;
+}
+
+.hourly-container {
+    display: flex;
+    gap: 2rem;
 }
 
 .next-day-info {
