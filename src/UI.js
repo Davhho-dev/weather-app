@@ -9,6 +9,7 @@ function updateLocation(userInput) {
 }
 
 function updateWeatherData(weatherData, hiLoArr, units) {
+  const mainLeft = document.getElementById("main-left");
   const currentDay = weatherData.list[0];
   const weatherCondition = document.getElementById("weather-condition");
   weatherCondition.textContent = currentDay.weather[0].description;
@@ -18,8 +19,46 @@ function updateWeatherData(weatherData, hiLoArr, units) {
   low.textContent = hiLoArr[0];
   const high = document.getElementById("high");
   high.textContent = hiLoArr[1];
-  //   console.log(currentDateCounter(weatherData));
+  mainLeft.removeChild(mainLeft.lastChild);
+  updateCurrentDayCard(weatherData.list, units);
   updateNextDayCards(weatherData.list, units);
+}
+
+function updateCurrentDayCard(weatherArr, units) {
+  const mainLeft = document.getElementById("main-left");
+  const todaysCard = document.createElement("div");
+  todaysCard.classList.add("todays-card");
+  const hourlyContainer = document.createElement("div");
+  hourlyContainer.classList.add("hourly-container");
+  const todaysData = weatherArr.slice(0, currentDateCounter(weatherArr));
+  todaysData.forEach(day => {
+    hourlyContainer.appendChild(createHourlyInfo(day, units));
+  })
+  todaysCard.appendChild(hourlyContainer);
+  const scrollBox = document.createElement("div");
+  scrollBox.classList.add("scroll-box");
+  scrollBox.appendChild(todaysCard);
+  mainLeft.appendChild(scrollBox);
+}
+
+function createHourlyInfo(hourlyData, units) {
+  const hourlyInfo = document.createElement("div");
+  hourlyInfo.classList.add("hourly-info");
+  const hour = document.createElement("p");
+  hour.classList.add("hour");
+  hour.textContent = simplifyTime(hourlyData.dt.slice(11));
+  const weatherIcon = createWeatherIcon(hourlyData.weather[0].icon);
+  const tempContainer = document.createElement("div");
+  tempContainer.classList.add("temp-container");
+  const hourlyTemp = document.createElement("p");
+  hourlyTemp.classList.add("hourly-temp");
+  hourlyTemp.textContent = Math.round(hourlyData.main.temp);
+  const degrees = document.createElement("p");
+  degrees.classList.add("hourly-degrees");
+  (units === "metric") ? degrees.textContent = "°C" : degrees.textContent = "°F";
+  tempContainer.append(hourlyTemp, degrees);
+  hourlyInfo.append(hour, weatherIcon, tempContainer);
+  return hourlyInfo;
 }
 
 function updateNextDayCards(weatherArr, units) {
@@ -44,6 +83,8 @@ function createCards(weatherArr, units) {
     calendarDay.classList.add("card-day");
     calendarDay.textContent = new Intl.DateTimeFormat("en-us", {weekday: "long"}).format(new Date(sameDayArr[0].dt.slice(0, 10)));
     cards.appendChild(calendarDay);
+    const hourlyContainer = document.createElement("div");
+    hourlyContainer.classList.add("hourly-container");
     sameDayArr.forEach(day => {
       const cardInfo = document.createElement("div");
       cardInfo.classList.add("next-day-info")
@@ -64,7 +105,8 @@ function createCards(weatherArr, units) {
       cardInfo.appendChild(time);
       cardInfo.appendChild(createWeatherIcon(day.weather[0].icon));
       cardInfo.appendChild(tempContainer);
-      cards.appendChild(cardInfo);
+      hourlyContainer.appendChild(cardInfo);
+      cards.appendChild(hourlyContainer);
     });
     cardWrapper.appendChild(cards);
     cardStartDay++;
