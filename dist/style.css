@@ -27,7 +27,7 @@ html {
 }
 
 #header {
-    margin-top: 1rem;
+    margin-top: 2rem;
     background-color: var(--pri-cl);
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -244,6 +244,7 @@ button {
 }
 
 #card-wrapper {
+    margin-bottom: 2rem;
     display: flex;
     flex-direction: column;
     gap: 2rem;
