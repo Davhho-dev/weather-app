@@ -6,7 +6,6 @@ let units = "imperial";
 let inputArr = [];
 const onLoadInput = ["Brooklyn", "New York"];
 
-
 window.onload = (e) => {
   searchBar(onLoadInput, units);
 }
@@ -25,9 +24,10 @@ form.addEventListener("click", (e) => {
     e.preventDefault();
     animateSearchBar();
     const userInput = document.getElementById("search").value;
-    if (userInput.indexOf(",") >= 0)
-      inputArr = userInput.split(", "); //check for whitespace
+    const findComma = userInput.indexOf(",");
+    if(userInput.charAt(findComma + 1) === " ") inputArr = userInput.split(", ");
     else inputArr = userInput.split(",");
+    if(inputArr[1] === undefined) alert("No state or country entered");
     searchBar(inputArr, units);
     form.reset();
   }
