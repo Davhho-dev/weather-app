@@ -21,29 +21,29 @@ function animateSearchBar() {
 }
 
 async function searchBar(userInput, units) {
-  let city = userInput[0];
-  let state = userInput[1];
-  console.log(userInput);
-  const response = await fetch(
-    `https://api.openweathermap.org/geo/1.0/direct?q=${city},%20${state}&limit=1&appid=c4404ba7cc6d37e8768e9682ed0c7259`,
-    { mode: "cors" }
-  );
-  const locationData = await response.json();
-  convertToCordinates(locationData, units, userInput);
+    let city = userInput[0];
+    let state = userInput[1];
+    const response = await fetch(
+      `https://api.openweathermap.org/geo/1.0/direct?q=${city},%20${state}&limit=5&appid=c4404ba7cc6d37e8768e9682ed0c7259`,
+      { mode: "cors" }
+    );
+    const locationData = await response.json();
+    console.log(locationData);
+    convertToCordinates(locationData, units, userInput);
 }
 
 async function convertToCordinates(data, units, userInput) {
-  let lat = data[0].lat;
-  let lon = data[0].lon;
-  const cordinateResponse = await fetch(
-    `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=c4404ba7cc6d37e8768e9682ed0c7259&units=${units}`,
-    { mode: "cors" }
-  );
-  const cordinateData = await cordinateResponse.json();
-  console.log(cordinateData);
-  updateWeatherData(cordinateData, getCurrentHiLo(cordinateData), units);
-  updateLocation(userInput);
-  return cordinateData;
+    let lat = data[0].lat;
+    let lon = data[0].lon;
+    const cordinateResponse = await fetch(
+      `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=c4404ba7cc6d37e8768e9682ed0c7259&units=${units}`,
+      { mode: "cors" }
+    );
+    const cordinateData = await cordinateResponse.json();
+    console.log(cordinateData);
+    updateWeatherData(cordinateData, getCurrentHiLo(cordinateData), units);
+    updateLocation(userInput);
+    return cordinateData;
 }
 
 function getCurrentHiLo(weatherData) {
