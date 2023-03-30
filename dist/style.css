@@ -318,6 +318,10 @@ button {
         margin-left: 0rem;
     }
 
+    .weather-con {
+        height: 65%;
+    }
+
     #card-wrapper {
         align-items: center;
     }
@@ -351,6 +355,10 @@ button {
     .weather-con,
     .scroll-box {
         margin-left: 0rem;
+    }
+
+    .weather-con {
+        height: 65%;
     }
 
     #card-wrapper {
