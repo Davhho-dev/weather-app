@@ -27,8 +27,12 @@ form.addEventListener("click", (e) => {
     const findComma = userInput.indexOf(",");
     if(userInput.charAt(findComma + 1) === " ") inputArr = userInput.split(", ");
     else inputArr = userInput.split(",");
-    if(inputArr[1] === undefined) alert("No state or country entered");
-    searchBar(inputArr, units);
+    console.log(inputArr);
+    if(inputArr[0] === '') alert("Please enter a City and State/Country, separated by a comma.");
+    else if(inputArr[1] === undefined) alert("No State/Country was included. Please enter a City and State/Country, separated by a comma.");
+    else {
+      searchBar(inputArr, units);
+    }
     form.reset();
   }
 });
