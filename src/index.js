@@ -1,6 +1,7 @@
 import { moveSlider } from "./slider";
 import { animateSearchBar, searchBar } from "./search";
 import { updateLocation } from "./UI";
+import "./style.css";
 
 let units = "imperial";
 let inputArr = [];
